@@ -2,6 +2,8 @@
 
 @section('title', '| Create New Post')
 
+
+
 @section('stylesheets')
     <link rel="stylesheet" href="{{url("css/parsley.css")}}">
     <link rel="stylesheet" href="{{url("css/select2.min.css")}}">

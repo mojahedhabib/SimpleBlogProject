@@ -1,7 +1,7 @@
 @extends('main')
 
 @section('title', '| Create New Post')
-
+<!--this is a comment-->
 
 
 @section('stylesheets')

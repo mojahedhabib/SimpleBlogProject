@@ -135,5 +135,12 @@
                     </div>
                 </div>
        <!--end of .container-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center pagination justify-content-lg-center">
+                        {!! $posts->links(); !!}
+                    </div>
+                </div>
+            </div>
     </div>
 @endsection

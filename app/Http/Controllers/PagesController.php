@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\DB;
 class PagesController extends Controller {
     public function getIndex() {
         //$posts = DB::table('posts')->select('title', 'body', 'slug', 'image', 'category_id', 'created_at', 'updated_at')->get();
-        $posts = Post::orderBy('created_at')->limit(10)->get();
+        //$posts = Post::orderBy('created_at')->limit(10)->get();
+        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
         $tags = Tag::all();
         $categories = Category::all();
         return view('pages.welcome', ['posts'=>$posts])

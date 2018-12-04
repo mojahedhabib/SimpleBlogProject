@@ -23,7 +23,7 @@
                                 <label for="message" class="bmd-label-floating">Message</label>
                                 <textarea name="message" type="text" id="message" cols="30" rows="10" class="form-control"></textarea>
                             </div>
-                            <button class="form-control btn btn-primary btn-raised">Submit</button>
+                            <button class="btn btn-primary">Submit</button>
                         </form>
                     </div>
                 </div>

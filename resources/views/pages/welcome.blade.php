@@ -29,57 +29,68 @@
 
 
 @section('content')
-        <div class="row float-lg-none mt-5">
-                <div class="col col-md-8">
+    <div class="container-fluid">
+        <div class="row mt-5">
+
+                <div class="col col-sm-8 ">
                     <h3 class="text-center">Hot Topics</h3>
+
                     @foreach($posts as $post)
 
-                        <div class="card mb-3">
-                            <img class="card-img-top" src="{{asset('images/' . $post->image)}}" width="100px" height="300px" alt="images/jumbotron.jpg">
+                        <div class="card shadow-sm p-3 mb-lg-2 bg-white rounded">
                             <div class="card-body">
-                                <h5 class="card-title">{{$post->title}}</h5>
-                                <p class="card-text">{{strip_tags(substr($post->body, 0, 200))}} {{strip_tags(strlen($post->body) > 300 ? "..." : "")}}</p>
-                                <a href="{{route('blog.single', $post->id)}}" class="btn btn-primary mb-3">Read more...</a>
-                                @if(Auth::check())
-                                    <div class="author-info">
-                                        <img src="{{"https://www.gravatar.com/avatar/". md5(strtolower(trim(Auth::user()->email)))}}" class="author-image">
-                                        <div class="author-name">
-                                            <h5> {{Auth::user()->name}}</h5>
-                                            <p class="author-time mb-0"> {{date('M j, Y h:ia', strtotime($post->created_at))}}</p>
-                                        </div>
-                                    </div>
+                                <ul class="list-group list-unstyled flex">
+                                    <li class="media d-flex">
+                                        <img class="align-self-center mr-3" src="{{asset('images/' .$post->image)}}" width="500px" height="300px" alt="Generic placeholder image">
+                                        <div class="media-body">
 
-
-                                    @else
-                                    <i style="
+                                            @if(Auth::check())
+                                                <div class="media d-flex">
+                                                    <img class="author-image mr-3 card-img" src="{{"https://www.gravatar.com/avatar/". md5(strtolower(trim(Auth::user()->email)))}}" alt="Generic placeholder image">
+                                                    <div class="media-body">
+                                                        <h6 class="mt-0"> by {{Auth::user()->name}}</h6>
+                                                        <p class="author-time mb-0"> published on {{date('M j, Y h:ia', strtotime($post->created_at))}}</p>
+                                                    </div>
+                                                </div>
+                                            @else
+                                                <i style="
                                          font-size: 15px;
                                          font-style: italic;
                                          color: #aaa;">
-                                        <small>
-                                            <strong>Published at {{date('M j, Y h:ia', strtotime($post->created_at))}}</strong>
-                                        </small></i><br><br>
-                                @endif
-                                <div class="row float-right" style="margin-top: 40px; margin-right: 75px;">
-                                    <p class="fas fa-tags"> Tags:</p>
-                                    @foreach($post->tags as $tag)
-                                        <span class="badge badge-secondary">{{$tag->name}}</span>
-                                    @endforeach
-                                </div>
-                                <div class="row float-right mb-0">
-                                    <div class="viewers">
-                                        <span class="badge badge-info"><i class="fas fa-eye border-secondary mr-2"> 1032 views</i></span>
-                                        <span class="badge badge-info"><i class="far fa-thumbs-up border-secondary mr-2"> 4 likes</i></span>
-                                        <span class="badge badge-info">
-                                            <i class="far fa-comments border-secondary mr-2">
-                                                {{$post->comments->count()}}
-                                            </i></span>
-                                    </div>
-                                </div>
+                                                    <small>
+                                                        <strong>Published at {{date('M j, Y h:ia', strtotime($post->created_at))}}</strong>
+                                                    </small></i><br><br>
+                                            @endif
+                                                <hr>
 
+                                            <h5 class="card-title">{{$post->title}}</h5>
+                                            <p class="card-text">{{strip_tags(substr($post->body, 0, 200))}} {{strip_tags(strlen($post->body) > 300 ? "..." : "")}}
+                                            <a href="{{route('blog.single', $post->id)}}" class="btn btn-sm btn-primary d-inline" style="margin-left: 480px;">Read more...</a> </p>
+                                                <hr>
+
+
+                                            <div class="flex-sm-row">
+                                                <i class="fas fa-eye border-secondary mr-2">1032</i>
+                                                <i class="far fa-thumbs-up border-secondary mr-2">4</i>
+                                                <i class="far fa-comments border-secondary mr-2">
+                                                    {{$post->comments->count()}}
+                                                </i>
+
+                                                <p class="fas fa-tags" style="margin-left: 50px;"> Tags:</p>
+                                                @foreach($post->tags as $tag)
+                                                    <span class="badge badge-secondary">{{$tag->name}}</span>
+                                                @endforeach
+                                            </div>
+
+
+
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-
                     @endforeach
+
                 </div><hr>
 
                 <div class="col-md-4">
@@ -142,5 +153,6 @@
                     </div>
                 </div>
             </div>
+    </div>
     </div>
 @endsection

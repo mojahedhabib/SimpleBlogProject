@@ -106,5 +106,7 @@ Route::group(['middleware' => ['web']], function () {
 
 Auth::routes();
 
-
+Route::get('dashboard', function() {
+    return view('pages.dashboard');
+});
 //Route::get('/home', 'HomeController@index')->name('home');

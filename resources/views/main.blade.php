@@ -2,6 +2,7 @@
 <!doctype html>
 <html lang="en">
 @include('partials._head')
+@yield('style')
 
 <body>
 

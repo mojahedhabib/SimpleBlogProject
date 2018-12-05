@@ -88,6 +88,13 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('about', 'PagesController@getAbout');
     Route::get('/', 'PagesController@getIndex');
 
+
+    Route::get('dashboard', function() {
+        return view('pages.dashboard');
+    })->name('dashboard');
+
+    Route::get('mga-post',['uses'=> 'mgaPostController@index', 'as'=> 'samplePage']);
+
 });
 
 
@@ -106,7 +113,5 @@ Route::group(['middleware' => ['web']], function () {
 
 Auth::routes();
 
-Route::get('dashboard', function() {
-    return view('pages.dashboard');
-});
+
 //Route::get('/home', 'HomeController@index')->name('home');

@@ -1,4 +1,4 @@
-@extends('main')
+@extends('pages.dashboard')
 
 @section('title', '| Create New Post')
 <!--this is a comment-->
@@ -19,7 +19,7 @@
     </script>
 @endsection
 
-@section('content')
+@section('the-content')
     <div class="row">
         <div class="col-md-8 col offset-md-2">
             <div class="card">

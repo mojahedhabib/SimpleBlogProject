@@ -1,8 +1,6 @@
-@extends('main')
+@extends('pages.dashboard')
 
-@section('title', '| All Tags')
-
-@section('content')
+@section('the-content')
     <div class="row">
         <div class="col-md-8 mt-5">
             <div class="card">

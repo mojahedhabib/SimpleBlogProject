@@ -7,7 +7,10 @@
     <meta name="csrf_token" content="{{csrf_token()}}">
     <title>AdminLTE 2 | Dashboard</title>
 
+    <!--includes-->
     @include('partials._head')
+    <title>Laravel Blog @yield('title')</title>
+    @yield('stylesheets')
 
     <!-- stylesheets -->
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
@@ -57,14 +60,14 @@
             <span class="logo-lg"><b>CharChar</b>Blog</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top"  style="background-color: #1E90FF;">
+        <nav class="navbar navbar-static-top"  style="background-color:#0d6aad;">
             <!-- Sidebar toggle button-->
             <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                 <span class="sr-only">Toggle navigation</span>
             </a>
-
-
+            <div class="float-right"><a class="btn btn-primary float-right" href="{{route('blog.index')}}">See Front-End</a></div>
         </nav>
+
     </header>
     <!-- Left side column. contains the logo and sidebar -->
     <aside class="main-sidebar">
@@ -95,7 +98,7 @@
             <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="active treeview">
-                        <a href="#">
+                        <a href="{{route('dashboard')}}">
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </span>
                         </a>
@@ -111,14 +114,14 @@
 
                     </li>
                     <li class="treeview">
-                        <a href="#">
+                        <a href="{{route('categories.index')}}">
                             <i class="fa fa-pie-chart"></i>
                             <span>Category</span>
                 </span>
                         </a>
                     </li>
                     <li class="treeview">
-                        <a href="#">
+                        <a href="{{route('tags.index')}}">
                             &nbsp; &nbsp; &nbsp;<span>Tags</span>
                 </span>
                         </a>
@@ -157,98 +160,8 @@
         <!-- Main content -->
         <section class="content">
             <!-- Small boxes (Stat box) -->
-            <div class="row">
-                <div class="col-lg-2 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-aqua">
-                        <div class="inner">
-                            <h3>150</h3>
 
-                            <p>Total Posts</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-bag"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-2 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-green">
-                        <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                            <p>Pending Posts</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-2 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-yellow">
-                        <div class="inner">
-                            <h3>44</h3>
-
-                            <p>Total Views</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-person-add"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-2 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-red">
-                        <div class="inner">
-                            <h3>65</h3>
-
-                            <p>Total Shares</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-fuchsia">
-                        <div class="inner">
-                            <h3>65</h3>
-
-                            <p>Total Feedbacks</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-blue">
-                        <div class="inner">
-                            <h3>65</h3>
-
-                            <p>Likes|Favorite|Violent|Wow</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-            </div>
+            @include('pages.boxes')
             <!-- /.row -->
             <!-- Main row -->
             <div class="row mt-5">

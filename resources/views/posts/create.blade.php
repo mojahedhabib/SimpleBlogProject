@@ -1,10 +1,24 @@
 @extends('base.post_base')
 <!--this is a comment-->
+@section('stylesheets')
+    <link rel="stylesheet" href="{{url("css/parsley.css")}}">
+    <link rel="stylesheet" href="{{url("css/select2.min.css")}}">
+
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+
+    <script>
+        tinymce.init({
+            selector:'textarea',
+            plugins: 'link',
+            menubar: false
+        });
+    </script>
+@endsection
 
 @section('action-content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col offset-8">
+            <div class="col-md-8 col offset-8" style="margin-left: 250px;">
                 <div class="box offset-8">
                     <div class="box-body">
                         <h2>Create New Post</h2>
@@ -46,4 +60,16 @@
         </div>
     </div>
     @endsection
+
+@section('script')
+    <script src="{{url("js/parsley.min.js")}}"></script>
+    <script src="{{url("js/select2.min.js")}}"></script>
+    <script src="{{url("js/select2.min.js")}}"></script>
+
+    <script>
+        $(".select2-selection--multiple").select2({
+            maximumSelectionLength: 10
+        });
+    </script>
+@endsection
 

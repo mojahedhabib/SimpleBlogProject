@@ -90,7 +90,7 @@ Route::group(['middleware' => ['web']], function () {
 
 
     Route::get('dashboard', function() {
-        return view('pages.dashboard');
+        return view('dashboard');
     })->name('dashboard');
 
     Route::get('mga-post',['uses'=> 'mgaPostController@index', 'as'=> 'samplePage']);

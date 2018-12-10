@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>EM | Empployee Management</title>
+  <title>Blog | CharChar</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -76,7 +76,161 @@ desired effect
     <!-- Main content -->
     <section class="content">
 
+      <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>150</h3>
+
+              <p>Total Posts</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+              <p>Total Favorite</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3>44</h3>
+
+              <p>Pending Posts</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>65</h3>
+
+              <p>Total Views</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-pie-graph"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+
       <!-- Your Page Content Here -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Top 10 Popular Posts</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table class="table table-bordered">
+                <tbody>
+                <tr>
+                  <th style="width: 10px">Rank List</th>
+                  <th>Title</th>
+                  <th>Author</th>
+                  <th style="width: 40px">Favorites</th>
+                  <th style="width: 40px">Comments</th>
+                  <th style="width: 40px">Views</th>
+                  <th style="width: 40px">Status</th>
+                </tr>
+                <tr>
+                  <td>1.</td>
+                  <td>electronic typesettm Ipsum passage.e</td>
+                  <td>John Ray</td>
+                  <td>45</td>
+                  <td>34</td>
+                  <td>234</td>
+                  <td><span>Published</span></td>
+                </tr>
+                <tr>
+                  <td>1.</td>
+                  <td>electronic typesettm Ipsum passage.e</td>
+                  <td>John Ray</td>
+                  <td>45</td>
+                  <td>34</td>
+                  <td>234</td>
+                  <td><span>Published</span></td>
+                </tr>
+                <tr>
+                  <td>1.</td>
+                  <td>electronic typesettm Ipsum passage.e</td>
+                  <td>John Ray</td>
+                  <td>45</td>
+                  <td>34</td>
+                  <td>234</td>
+                  <td><span>Published</span></td>
+                </tr>
+                <tr>
+                  <td>1.</td>
+                  <td>electronic typesettm Ipsum passage.e</td>
+                  <td>John Ray</td>
+                  <td>45</td>
+                  <td>34</td>
+                  <td>234</td>
+                  <td><span>Published</span></td>
+                </tr>
+                <tr>
+                  <td>1.</td>
+                  <td>electronic typesettm Ipsum passage.e</td>
+                  <td>John Ray</td>
+                  <td>45</td>
+                  <td>34</td>
+                  <td>234</td>
+                  <td><span>Published</span></td>
+                </tr>
+                <tr>
+                  <td>1.</td>
+                  <td>electronic typesettm Ipsum passage.e</td>
+                  <td>John Ray</td>
+                  <td>45</td>
+                  <td>34</td>
+                  <td>234</td>
+                  <td><span>Published</span></td>
+                </tr>
+
+
+                </tbody></table>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix">
+              <ul class="pagination pagination-sm no-margin pull-right">
+                <li><a href="#">«</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">»</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
     </section>
     <!-- /.content -->

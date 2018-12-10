@@ -1,25 +1,6 @@
-@extends('pages.dashboard')
-
-@section('title', '| Create New Post')
+@extends('layouts.app-template')
 <!--this is a comment-->
-
-
-@section('stylesheets')
-    <link rel="stylesheet" href="{{url("css/parsley.css")}}">
-    <link rel="stylesheet" href="{{url("css/select2.min.css")}}">
-
-    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-
-    <script>
-        tinymce.init({
-            selector:'textarea',
-            plugins: 'link',
-            menubar: false
-        });
-    </script>
-@endsection
-
-@section('the-content')
+@section('content')
     <div class="row">
         <div class="col-md-8 col offset-md-2">
             <div class="card">
@@ -63,16 +44,3 @@
     </div>
     @endsection
 
-@section('scripts')
-
-    <script src="{{url("js/parsley.min.js")}}"></script>
-    <script src="{{url("js/select2.min.js")}}"></script>
-    <script src="{{url("js/select2.min.js")}}"></script>
-
-    <script>
-        $(".select2-selection--multiple").select2({
-            maximumSelectionLength: 10
-        });
-    </script>
-
-    @endsection

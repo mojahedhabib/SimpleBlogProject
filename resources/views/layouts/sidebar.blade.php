@@ -31,24 +31,11 @@
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu">
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="/"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-        <li><a href="{{ url('employee-management') }}"><i class="fa fa-link"></i> <span>Employee Management</span></a></li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>System Management</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{ url('system-management/department') }}">Department</a></li>
-            <li><a href="{{ url('system-management/division') }}">Division</a></li>
-            <li><a href="{{ url('system-management/country') }}">Country</a></li>
-            <li><a href="{{ url('system-management/state') }}">State</a></li>
-            <li><a href="{{ url('system-management/city') }}">City</a></li>
-            <li><a href="{{ url('system-management/report') }}">Report</a></li>
-          </ul>
-        </li>
-        <li><a href="{{ route('user-management.index') }}"><i class="fa fa-link"></i> <span>User management</span></a></li>
+        <li class="active"><a href="{{route('dashboard')}}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
+        <li><a href="#"><i class="fa fa-link"></i> <span>Posts</span></a></li>
+        <li><a href="#"><i class="fa fa-link"></i> <span>Categories</span></a></li>
+        <li><a href="#"><i class="fa fa-link"></i> <span>Tags</span></a></li>
+        <li><a href="#"><i class="fa fa-link"></i> <span>User Management</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

@@ -93,6 +93,10 @@ Route::group(['middleware' => ['web']], function () {
         return view('dashboard');
     })->name('dashboard');
 
+    Route::get('post-base', function() {
+        return view('base.post_base');
+    })->name('post-base');
+
     Route::get('mga-post',['uses'=> 'mgaPostController@index', 'as'=> 'samplePage']);
 
 });

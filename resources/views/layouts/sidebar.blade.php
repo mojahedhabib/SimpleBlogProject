@@ -33,7 +33,7 @@
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="{{route('dashboard')}}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
         <li><a href="{{route('post.index')}}"><i class="fa fa-link"></i> <span>Posts</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Categories</span></a></li>
+        <li><a href="{{route('categories.index')}}"><i class="fa fa-link"></i> <span>Categories</span></a></li>
         <li><a href="#"><i class="fa fa-link"></i> <span>Tags</span></a></li>
         <li><a href="#"><i class="fa fa-link"></i> <span>User Management</span></a></li>
       </ul>

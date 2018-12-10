@@ -1,7 +1,13 @@
 @extends('base.post_base')
 
+@section('breadcrumb')
+    <li class="active">Posts</li>
+@endsection
+
 @section('action-content')
+
     @include('partials._messages')
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">

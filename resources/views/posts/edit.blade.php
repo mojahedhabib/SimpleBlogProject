@@ -1,5 +1,9 @@
 @extends('base.post_base')
 
+@section('breadcrumb')
+    <li class="active">Posts / Edit Post</li>
+@endsection
+
 @section('stylesheets')
     <link rel="stylesheet" href="{{url("css/parsley.css")}}">
     <link rel="stylesheet" href="{{url("css/select2.min.css")}}">
@@ -62,7 +66,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4" style="margin-top: 30px; ">
+            <div class="col-md-4">
                 <div class="box" style="background-color:#FFF8DC; ">
                     <div class="box-body">
                         <div class="col col-md-12" style="margin-top: 10px; ">
@@ -80,7 +84,7 @@
                         </div>
                         <hr>
                         <div class="row">
-                            <div class="col-sm-5 offset-md-1">
+                            <div class="col-sm-5">
                                 <form action="">
                                     <input type="submit"  class="btn btn-success btn-block" value="Save">
                                 </form>
@@ -88,7 +92,7 @@
                             </div>
 
                             <div class="col-sm-5" style="">
-                                <form action="{{route('post.show', array($post->id))}}" method="POST">
+                                <form action="{{route('post.index', array($post->id))}}" method="POST">
                                     @csrf
                                     @method('GET')
                                     <input type="submit" value="Cancel" class="btn btn-block btn-primary">

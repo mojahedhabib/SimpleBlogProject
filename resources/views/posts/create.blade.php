@@ -1,4 +1,9 @@
 @extends('base.post_base')
+
+@section('breadcrumb')
+    <li class="active">Posts / Create New Post</li>
+@endsection
+
 <!--this is a comment-->
 @section('stylesheets')
     <link rel="stylesheet" href="{{url("css/parsley.css")}}">

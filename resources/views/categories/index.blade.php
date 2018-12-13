@@ -4,6 +4,12 @@
 
 @endsection
 
+@section('title')
+<h1>
+    Categories
+</h1>
+@endsection
+
 @section('breadcrumb')
     <li class="active">Categories</li>
 @endsection
@@ -42,7 +48,7 @@
                                     <div class="row">
                                         <td>
                                             <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#editModal" data-id="{{$category->id}}" data-name ="{{$category->name}}">Edit</button>
-                                            <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                                            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="{{$category->id}}">delete</button>
                                         </td>
                                     </div>
                                 </tr>
@@ -112,6 +118,32 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Add Category</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div class="modal modal-danger" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center">Are you sure you want to delete this?</p>
+                    <form action="{{route('categories.destroy', 'delete')}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <input type="hidden" name="id" value="" id="_id">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">No, Close</button>
+                    <button type="submit" class="btn btn-danger">Yes, Delete</button>
                 </div>
                 </form>
             </div>

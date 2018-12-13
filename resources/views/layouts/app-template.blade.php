@@ -13,8 +13,9 @@
 
 
   @yield('css')
+    @yield('stylesheets')
 
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
     <!-- Bootstrap 3.3.6 -->
     <link href="{{ asset("/bower_components/AdminLTE/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css" />
@@ -129,6 +130,17 @@
               //modal.find('.modal-title').text('New message to ' + recipient)
                modal.find('.modal-body #category_name').val(category);
               modal.find('.modal-body #category_id').val(category_id);
+          });
+
+          $('#deleteModal').on('show.bs.modal', function (event) {
+              let button = $(event.relatedTarget) // Button that triggered the modal
+              let category_id = button.data('id')
+              // let id = button.data('id')// Extract info from data-* attributes
+              // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+              // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+              let modal = $(this)
+              //modal.find('.modal-title').text('New message to ' + recipient)
+              modal.find('.modal-body #_id').val(category_id);
           })
       </script>
   </body>

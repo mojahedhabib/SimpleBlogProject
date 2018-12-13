@@ -106,8 +106,14 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request
+    )
     {
-        //
+        $category = Category::find($request->id);
+
+        Session::flash('success', 'Category has been deleted.');
+        $category->delete();
+
+        return redirect()->back();
     }
 }

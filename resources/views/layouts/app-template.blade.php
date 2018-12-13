@@ -120,5 +120,20 @@
 </script>
       @yield('script')
 <script src="{{ asset('js/site.js') }}"></script>
+
+      <script>
+          $('#editModal').on('show.bs.modal', function (event) {
+               let button = $(event.relatedTarget) // Button that triggered the modal
+               let category = button.data('name')
+              let category_id = button.data('id')
+               // let id = button.data('id')// Extract info from data-* attributes
+              // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+              // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+               let modal = $(this)
+              //modal.find('.modal-title').text('New message to ' + recipient)
+               modal.find('.modal-body #category_name').val(category);
+              modal.find('.modal-body #category_id').val(category_id);
+          })
+      </script>
   </body>
 </html>

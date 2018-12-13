@@ -73,8 +73,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $cat = Category::find($id);
-        return view('category.index')->withCat('cat');
+        $categories = Category::find($id);
     }
 
     /**
@@ -84,10 +83,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $cat = Category::find($id);
-            $this->validate($request, [
+        //dd($request->all());
+        $cat = Category::findOrFail($request->id);
+
+        $this->validate($request, [
             'name' => 'required'
         ]);
 
@@ -96,7 +97,7 @@ class CategoryController extends Controller
 
         Session::flash('success', 'Category has been updated.');
 
-        return redirect()->route('category.index');
+        return redirect()->back();
     }
 
     /**

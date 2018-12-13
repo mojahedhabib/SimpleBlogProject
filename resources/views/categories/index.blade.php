@@ -4,7 +4,9 @@
     <li class="active">Categories</li>
 @endsection
 
+
 @section('action-content')
+    |@include('partials._messages')
     <div class="container">
         <div class="row">
             <div class="col-md-8 mt-5">
@@ -16,6 +18,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
 
@@ -26,7 +29,8 @@
                                     <td>{{$category->name}}</td>
                                     <div class="row">
                                         <td>
-                                            <a href="{{route('categories.edit', $category->id)}}"class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal">Edit</a>
+                                            <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#editModal" data-id="{{$category->id}}" data-name ="{{$category->name}}">Edit</button>
+                                            <a href="#" class="btn btn-danger btn-sm">Delete</a>
                                         </td>
                                     </div>
                                 </tr>
@@ -55,7 +59,7 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -64,23 +68,26 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <form action="#">
+                <div class="modal-body" id="myModal">
+                    <form action="{{route('categories.update', 'category')}}" method="post">
                         @csrf
-                        @method('GET')
+                        @method('PUT')
                         <div class="form-group">
-                            <label for="category">Category</label>
-                            <input type="text" class="form-control" value="{{$category->name}}">
+                            <input type="hidden" name="id" value="" id="category_id">
+                            <label for="category_name">Category</label>
+                            <input id="category_name" type="text" class="form-control" value="" name="name">
                         </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
                 </form>
             </div>
         </div>
     </div>
+
+
  @endsection
 
 

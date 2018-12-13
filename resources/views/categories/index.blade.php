@@ -1,4 +1,8 @@
 @extends('base.post_base')
+@section('css')
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+@endsection
 
 @section('breadcrumb')
     <li class="active">Categories</li>
@@ -7,12 +11,20 @@
 
 @section('action-content')
     |@include('partials._messages')
-    <div class="container">
+    <section class="content">
         <div class="row">
-            <div class="col-md-8 mt-5">
+            <div class="col-md-8 mt-5 col-md-offset-2">
                 <div class="box">
                     <div class="box-body">
-                        <h1 class="card-title">Categories</h1>
+                        <div class="row">
+                            <div class="col col-md-2">
+                                <h1 class="card-title">Categories</h1>
+                            </div>
+                            <div class="col col-md-2" style="margin-top: 20px;">
+                                <button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#addModal"><span class="fas fa-plus"> Add New Category</span></button>
+                            </div>
+                        </div>
+
                         <table class="table table-hover" style="margin-top: 35px;">
                             <thead>
                             <tr>
@@ -40,25 +52,15 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-3 mt-5">
-                <div class="box">
-                    <div class="box-body">
-                        <form action="{{route('categories.store')}}" method="POST">
-                            @csrf
-                            <h2 class="card-title">New Category</h2>
-                            <input type="text" class="form-control" name="name" placeholder="Add New Category">
-                            <input type="submit" class="btn btn-success btn-h1-spacing btn-block" value="Submit ">
-                        </form>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
+    </section>
 
 
 
-    <!-- Modal -->
+
+
+
+    <!-- Edit Modal -->
     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -87,7 +89,34 @@
         </div>
     </div>
 
+    <!---Add Modal->
+    <!-- Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{route('categories.store')}}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label for="category" id="category">Category Name</label>
+                            <input type="text" class="form-control" name="name" id="category">
+                        </div>
 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add Category</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
  @endsection
 
 

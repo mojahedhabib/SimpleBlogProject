@@ -1,5 +1,9 @@
 @extends('base.post_base')
 
+@section('title')
+    <h1>Add New Post</h1>
+    @endsection
+
 @section('breadcrumb')
     <li class="active">Posts / Create New Post</li>
 @endsection
@@ -23,11 +27,9 @@
 @section('action-content')
 <section class="content">
     <div class="row">
-        <div class="col-md-8 col offset-8" style="margin-left: 250px;">
+        <div class="col-md-8 col offset-12" style="margin-left: 250px;">
             <div class="box offset-8">
                 <div class="box-body">
-                    <h2>Create New Post</h2>
-                    <hr>
                     <form action="{{route('post.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <label for="title" class="bmd-label-floating">Title</label>

@@ -15,25 +15,29 @@
         <div class="col-md-8 offset-md-2">
             <div class="card">
                     <div class="card-body">
+                        <div class="row">
+                            <img class="author-image mr-3 card-img" src="{{"https://www.gravatar.com/avatar/". md5(strtolower(trim(Auth::user()->email)))}}" alt="Generic placeholder image"style="margin-left: 20px;">
+                            <h6><i>Mojahed Habib</i></h6>
+                        </div>
+                        <div class="row">
+                            <i style="color:#cccccc; margin-left: 20px; margin-top: 5px;"><small><strong class="fas fa-clock"> Published at {{date('M j, Y h:ia', strtotime($post['created_at']))}}</strong></small></i><br><br>
+                        </div>
                     <h1 class="card-title">{{$post['title']}}</h1>
-                    <div class="row">
-                        <i style="color: #1E90FF;"><small><strong>Published at {{date('M j, Y h:ia', strtotime($post['created_at']))}}</strong></small></i><br><br>
-                        &nbsp;<h6>Tags:</h6>
-                            @foreach($post->tags as $tag)
-                                <h6><span class="badge badge-secondary">{{$tag->name}}</span></h6>
-                            @endforeach
-                    </div>
                      <div class="image">
                          <img src="{{asset('images/'. $post->image)}}" alt="post-image">
                      </div>
                     <p>{!! $post['body'] !!}}</p>
                     <hr>
                     <p>Posted In: {{$post->category['name']}}</p>
+                        &nbsp;<h6 class="fas fa-tag"> Tags:</h6>
+                        @foreach($post->tags as $tag)
+                            <span class="badge badge-secondary">{{$tag->name}}</span>
+                        @endforeach
                 </div>
             </div>
         </div>
     </div>
-
+<!--displaying comments-->
     <div class="row">
         <div class="col-md-8 offset-md-2 mt-5">
             <div class="card">
@@ -51,15 +55,16 @@
                             <div class="comment-content">
                                 {{$comment->comment}}
                             </div>
+                            <button class="btn-success btn-sm"><span class="fas fa-reply"> Reply</span></button>
                         </div>
                     @endforeach
                 </div>
             </div>
         </div>
     </div>
-
+    <!--add comment-->
     <div class="row">
-        <div id="comment-form" class="offset-md-4 mt-5">
+        <div id="comment-form" class="col-md-8 offset-md-2 mt-5">
             <div class="card">
                 <div class="card-body">
                     <form action="{{route('comments.store', $post->id)}}" method="post">
@@ -68,19 +73,16 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" class="form-control" name="name">
+                                    <input type="text" class="form-control" name="name" placeholder="name">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control" name="email">
+                                    <input type="email" class="form-control" name="email" placeholder="email address">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="comment">Comment</label>
                                     <textarea name="comment" id="comment" cols="30" rows="10" class="form-control" placeholder="Write your comments here..."></textarea>
 
                                     <input type="submit" class="btn btn-primary" value="Add Comment" style="margin-top: 10px;">

@@ -1,5 +1,6 @@
 <?php
-
+use Illuminate\Support\Facades\Input;
+use App\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -98,6 +99,18 @@ Route::group(['middleware' => ['web']], function () {
     })->name('post-base');
 
     Route::get('mga-post',['uses'=> 'mgaPostController@index', 'as'=> 'samplePage']);
+
+    Route::any('/search', function() {
+        $q = Input::get('q');
+        $post = Post::where('title', 'LIKE', '%'.$q.'%')
+            ->get();
+
+        if(count($post) > 0) {
+            return view('posts.post_search')->withDetails($post)->withQuery($q);
+        }
+        else
+            return view('post.post_search')->withMessage('No Details found. Try to search again.');
+    })->name('searchPost');
 
 });
 

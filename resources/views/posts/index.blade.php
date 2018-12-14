@@ -22,13 +22,18 @@
                            <div class="col col-md-2" style="margin-top: 15px;">
                                <a href="{{route('post.create')}}" class="btn btn-primary btn-lg float-right mt-1  btn-raised" ><span class="fas fa-plus"> New Post</span></a>
                            </div>
+                           <!--Search form-->
                            <div class="col col-md-10">
-                               <div class="input-group input-group-lg pull-right" style="margin-top: 15px; width: 550px; margin-right: 10px;">
-                                   <input type="text" class="form-control" placeholder="search...">
-                                   <span class="input-group-btn">
-                              <button type="button" class="btn btn-primary btn-flat"><span class="fas fa-search"></span></button>
-                                </span>
-                               </div>
+                               <form action="{{route('searchPost')}}" method="POST" role="search">
+                                   @method('GET')
+                                   @csrf
+                                   <div class="input-group input-group-lg pull-right" style="margin-top: 15px; width: 550px; margin-right: 10px;">
+                                       <input type="text" class="form-control" placeholder="search..." name="q">
+                                       <span class="input-group-btn">
+                                  <button type="submit" class="btn btn-primary btn-flat"><span class="fas fa-search"></span></button>
+                                    </span>
+                                   </div>
+                               </form>
                            </div>
                        </div>
                    </div>
